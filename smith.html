@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			This is a smith chart
+		</title>
+		<script type="text/javascript" src="./jquery-1.9.1.js">
+</script>
+		<!--<script type="text/javascript" src="./bootstrap.js">
+</script>-->
+		<script type="text/javascript" src="./jquery-ui-1.10.2.custom.js">
+</script>
+		<script type="text/javascript" src="./d3.v3.js">
+</script>
+		<script type="text/javascript" src="./smith.js">
+</script>
+		<link rel="stylesheet" type="text/css" href="./bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="./smith.css">
+	</head>
+	<body>
+		<div class="container-fluid" style="margin:20px;">
+			<div class="row-fluid" style="border:solid;height:520px;">
+				<div id="left-block" class="span5" style="margin:20px"></div>
+				<div id="right-block" class="tabbable span6" style="margin:20px">
+					<div  style="text-align:center">
+						<h1>Smith圆图双枝节求解绘图程序</h1>
+					</div>
+					<div id="prog" class="progress progress-striped active" style="margin-top:10px">
+						<div class="bar" style="width: 0%;"></div>
+					</div>
+					<p></p>
+					<ul class="nav nav-tabs">
+						<li id="nav1" class="active">
+							<a href="#tab1" data-toggle="tab">Step 1</a>
+						</li>
+						<li id="nav2" class="disabled">
+							<a href="#tab2" data-toggle="tab">Step 2</a>
+						</li>
+						<li id="nav3" class="disabled">
+							<a href="#tab3" data-toggle="tab">Step 3</a>
+						</li>
+						<li id="nav4" class="disabled">
+							<a href="#tab4" data-toggle="tab">Step 4</a>
+						</li>
+						<li id="nav5" class="disabled">
+							<a href="#tab5" data-toggle="tab">Step 5</a>
+						</li>
+						<li id="nav6" class="disabled">
+							<a href="#tab6" data-toggle="tab">Step 6</a>
+						</li>
+						<li id="nav7" class="disabled">
+							<a href="#tab7" data-toggle="tab">Step 7</a>
+						</li>
+
+					</ul>
+					<div class="tab-content hero-unit" style="padding:20px;width:590px;height:280px;">
+						<div class="tab-pane active" id="tab1" style="margin-left:37px;">
+							<form class="form-horizontal">
+								<div class="control-group input-append">
+									<label  class="control-label">特性阻抗</label>
+									<div class="controls">
+										<input id="input1" class="span3" type="text" placeholder="Z0" ><span class="add-on">ohm</span>
+									</div>
+								</div>
+								<div class="control-group input-append">
+									<label class="control-label">负载阻抗</label>
+									<div class="controls">
+										<input id="input2" class="span3" type="text" placeholder="实部"> <input id="input3" class="span3" type="text" placeholder="虚部"> <span class="add-on">ohm</span>
+									</div>
+								</div>
+								<div class="control-group input-append">
+									<label class="control-label">波长</label>
+									<div class="controls">
+										<input id="input4" class="span3" type="text" placeholder="&lambda;"> <span class="add-on">m</span>
+									</div>
+								</div>
+								<div class="control-group input-append">
+									<label class="control-label">距离</label>
+									<div class="controls">
+										<input id="input5" class="span3" type="text" placeholder="d"> <span class="add-on">m</span>
+									</div>
+								</div>
+							</form>
+							<div class="control-group" style="margin-left:185px">
+									<div class="controls">
+										<button type="button" id="btn0" class="addBtn btn btn-large btn-primary">Go!</button>
+									</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab2" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4" >
+										<button type="button" id="btn1" class="addBtn btn btn-large btn-primary">Next</button>
+							</div>
+							<div class="span4">
+										<button type="button" id="bbtn1" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab3" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4" >
+										<button type="button" id="btn2" class="addBtn btn btn-large btn-primary">Next</button>
+							</div>
+							<div class="span4">
+										<button type="button" id="bbtn2" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab4" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4" >
+										<button type="button" id="btn3" class="addBtn btn btn-large btn-primary">Next</button>
+							</div>
+							<div class="span4">
+										<button type="button" id="bbtn3" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab5" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4" >
+										<button type="button" id="btn4" class="addBtn btn btn-large btn-primary">Next</button>
+							</div>
+							<div class="span4">
+										<button type="button" id="bbtn4" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab6" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4" >
+										<button type="button" id="btn5" class="addBtn btn btn-large btn-primary">Next</button>
+							</div>
+							<div class="span4">
+										<button type="button" id="bbtn5" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane container-fluid" id="tab7" style="height:100%;">
+							<div class="row-fluid" style="height:20%;">
+							<div class="span4 offset4">
+										<button type="button" id="bbtn6" class="backBtn btn btn-large btn-info">Back</button>
+							</div>
+							<div class="span4">
+										<button type="button" class="resetBtn btn btn-large btn-danger">Reset</button>
+							</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
