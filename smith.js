@@ -74,7 +74,7 @@ function complexDiv(arg1,arg2)
 function generateComplexString(arg)
 {
   var params = arg.slice();
-  if (params[1] <0) 
+  if (params[1] <0)
     return params[0].toFixed(4).toString() + params[1].toFixed(4).toString() + "j";
   else
     return params[0].toFixed(4).toString() + "+" + params[1].toFixed(4).toString() + "j";
@@ -183,7 +183,7 @@ function clearPlot()
 }
 
 function step0()
-{ 
+{
     clearPlot();
     plotBackground();
     charImp = $("#input1").val();
@@ -342,6 +342,7 @@ function step5()
     $("#prog .bar").css("width",widthStr);
     $(".nav-tabs li").addClass("disabled");
     $(".active").removeClass("disabled");
+    $(".progress").addClass("active");
   }
 
   function controlStateBacward()
@@ -356,25 +357,25 @@ function step5()
 
   function resetAll()
   {
-      charImp = ""; 
+      charImp = "";
       waveLength = "";
       distance = "";
       loadImp[0] = "";
       loadImp[1] = "";
       loadAdmittance[0] = 0;
-      loadAdmittance[1] = 0; 
+      loadAdmittance[1] = 0;
       loadReflection[0] = 0;
       loadReflection[1] = 0;
-      pointBAdmittance[0] = 0; 
+      pointBAdmittance[0] = 0;
       pointBAdmittance[1] = 0;
       pointBReflection[0] = 0;
-      pointBReflection[1] = 0; 
+      pointBReflection[1] = 0;
       pointBbAdmittance[0] = 0;
       pointBbAdmittance[1] = 0;
       pointBbReflection[0] = 0;
-      pointBbReflection[1] = 0; 
+      pointBbReflection[1] = 0;
       pointCAdmittance[0] = 0;
-      pointCAdmittance[1] = 0; 
+      pointCAdmittance[1] = 0;
       pointCReflection[0] = 0;
       pointCReflection[1] = 0;
       $("#input1").val("");
